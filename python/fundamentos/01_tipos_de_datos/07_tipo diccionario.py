@@ -12,7 +12,7 @@ paises["MEX"] = "México" #Agregando valores
 paises["COL"] = "Colombia"
 paises["CHL"] = "Chile"
 paises["PER"] = "Perú"
-paises["ARG"] = "Argentina"
++ises["ARG"] = "Argentina"
 
 # Eliminar valores de diccionario
 if "CRI" in paises: #Preguntamos si existe la clave en el diccionario
@@ -41,3 +41,4 @@ escuela = {
         {"nombre": "Marcelo", "apellido": "Argotti", "cursos":["MERN", "Python"]}
     ]
 }
+
