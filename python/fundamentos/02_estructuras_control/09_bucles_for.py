@@ -1,3 +1,6 @@
+#BUCLES PYTHON
+
+# For in range-------------------------------
 for i in range(4):
     print(i)
 
@@ -15,6 +18,7 @@ for i in range(10, 1, -3):
     print(i)
 #Imprime: 10, 7, 4
 
+# Recorrer un string-------------------------------
 for letra in 'Python':
     print(letra)
 #Imprime: 'P', 'y', 't', 'h', 'o', 'n'
@@ -29,6 +33,7 @@ for verdura in lista:
     print(verdura)
 #Imprime: brócoli, pepino, pimiento
 
+
 # Recorrer una tupla-------------------------
 tupla = ('fresa', 'manzana', 'cereza')
 
@@ -39,6 +44,7 @@ for i in range( len(tupla) ):
 for fruta in tupla:
     print(fruta)
 #Imprime: fresa, manzana, cereza
+
 
 #Recorrer un diccionario-------------------------
 estudiante = {"nombre": "Gonzalo", "curso": "Python"}
