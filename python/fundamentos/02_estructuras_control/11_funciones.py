@@ -27,7 +27,7 @@ frase = buenos_dias("Python")
 print(frase) #Imprime: Buenos días Python
 
 #Ejercicio de retorno de valor.
-#Crear una función que reciba 2 parámetrosn (Una frase + una palabra).
+#Crear una función que reciba 2 parámetros (Una frase + una palabra).
 #Devolver el valor de la frase completa e imprimir
 def retornoValor(frase, palabra):
     return f"{frase} {palabra}"
