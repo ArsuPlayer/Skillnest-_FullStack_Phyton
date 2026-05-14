@@ -43,6 +43,7 @@ class Estudiante:
 #Creación de Objetos (Instancias)
 e1 = Estudiante("Tulita", 4.0)
 e2 = Estudiante("RandyJoseador", 7.0)
+e3 = Estudiante("Martin", 3.9)
 
 #Uso de métodos de instancia
 print("== MÉTODO DE INSTANCIA==")
@@ -51,19 +52,23 @@ e1.mostrar_info()
 print()
 e2.mostrar_info()
 print()
+e3.mostrar_info()
+print()
 
 #Usar atributo de clase
 print("=== ATRIBUTO DE CLASE ===")
 print(e1.colegio)
 print(e2.colegio)
+print(e3.colegio)
 print()
 
 #Uso de método de clase
 print("=== MÉTODO DE CLASE ===")
-
+e1.colegio = "VVH" #
 Estudiante.cambiar_colegio("Purkuyen")
 print(e1.colegio)
 print(e2.colegio)
+print(e3.colegio)
 print()
 
 #Contar Estudiantes
@@ -72,6 +77,10 @@ print(f"Total estudiantes: {Estudiante.cantidad_estudiantes()}")
 
 #Método estático
 print("=== MÉTODO ESTÁTICO ===")
+
+print(f"¿{e1.nombre} Aprueba?")
+print(Estudiante.aprobar(e1.nota))
+print()
 
 
 
