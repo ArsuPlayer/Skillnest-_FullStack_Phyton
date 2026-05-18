@@ -1,0 +1,220 @@
+/* ==========================================
+   ESTILOS GENERALES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ==========================================
+   VISTA: TABLA DE USUARIOS / DASHBOARD
+   ========================================== */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-right: 4px; /* Alinea la sombra de 4px con el borde derecho */
+}
+
+.btn-new {
+    background-color: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 22px;
+    cursor: pointer;
+    border-radius: 0px;
+    box-shadow: 4px 4px 0px #000000;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid #000000; 
+}
+
+.user-table th {
+    background-color: #d8d8d8;
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    padding: 14px 15px;
+    border-bottom: 3px solid #000000;
+}
+
+.user-table th:not(:last-child),
+.user-table td:not(:last-child) {
+    border-right: 3px solid #000000;
+}
+
+.user-table td {
+    padding: 18px 15px;
+    font-size: 18px;
+    color: #000000;
+    vertical-align: middle;
+}
+
+.user-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Espaciado idéntico de la imagen para las acciones */
+.actions-cell {
+    display: flex;
+    gap: 26px; 
+    align-items: center;
+}
+
+.actions-cell i {
+    font-size: 35px;
+    color: #000000;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-text-stroke: 0.5px #000000; 
+}
+
+.icon-pencil {
+    transform: rotate(-10deg); /* Lápiz inclinado */
+}
+
+.icon-trash {
+    font-size: 26px; /* Ajuste para el tacho de basura */
+}
+
+.icon-envelope {
+    font-size: 23px; /* Ajuste para el sobre */
+}
+
+/* ==========================================
+   VISTA: FORMULARIO NUEVO USUARIO
+   ========================================== */
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 480px;
+}
+
+.form-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.user-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.form-group label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.form-group input {
+    width: 220px;
+    height: 38px;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+    border-radius: 0px;
+    padding: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+/* Estilo del menú desplegable funcional (Select) */
+.select-wrapper {
+    position: relative;
+    width: 220px;
+    background-color: #ffffff;
+}
+
+.select-wrapper select {
+    width: 100%;
+    height: 38px;
+    border: 2px solid #000000;
+    border-radius: 0px;
+    padding: 0 10px;
+    font-size: 15px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+}
+
+.select-wrapper::after {
+    content: "▼";
+    font-size: 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 2px solid #000000;
+    pointer-events: none;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+    padding-left: 100px; 
+}
+
+.btn-create {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 6px 20px;
+    cursor: pointer;
+    border-radius: 0px;
+    box-shadow: 4px 4px 0px #000000;
+}

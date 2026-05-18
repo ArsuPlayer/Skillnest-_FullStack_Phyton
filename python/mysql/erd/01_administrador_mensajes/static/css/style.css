@@ -1,0 +1,93 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.table-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* La sombra del botón (4px) queda alineada perfectamente con el borde derecho de la tabla */
+.header-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding-right: 4px; 
+}
+
+.btn-new {
+    background-color: #ffffff;
+    color: #000000;
+    border: 3px solid #000000;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 8px 22px;
+    cursor: pointer;
+    border-radius: 0px;
+    box-shadow: 4px 4px 0px #000000;
+}
+
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid #000000; 
+}
+
+.user-table th {
+    background-color: #d8d8d8;
+    color: #000000;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: left;
+    padding: 14px 15px;
+    border-bottom: 3px solid #000000;
+}
+
+.user-table th:not(:last-child),
+.user-table td:not(:last-child) {
+    border-right: 3px solid #000000;
+}
+
+.user-table td {
+    padding: 18px 15px;
+    font-size: 18px;
+    color: #000000;
+    vertical-align: middle;
+}
+
+.user-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.user-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Separación compacta exacta para los tres iconos */
+.actions-cell {
+    display: flex;
+    gap: 12px; 
+    align-items: center;
+}
+
+/* Estilo para los iconos de Bootstrap (Grosor y tamaño corregidos) */
+.icon-btn {
+    font-size: 22px;
+    color: #000000;
+    cursor: pointer;
+    -webkit-text-stroke: 0.5px #000000; /* Le da un toque más marcado al trazo, estilo boceto */
+}
