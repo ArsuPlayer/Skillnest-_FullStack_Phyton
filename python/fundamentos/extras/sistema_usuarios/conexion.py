@@ -1,17 +1,27 @@
-# Importamos el conector MySQL
-import mysql.connector
+import pymysql
 
-class Conexion:
-    @staticmethod
-    def conectar():
-        """
-        Este método crea y retorna una conexión
-        a la base de datos.
-        """
-        conexion = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="1234",  # Asegúrate que esta sea tu contraseña real
-            database="usuarios_db"
-        )
-        return conexion
+class Conexión:
+    def __init__(self):
+        self.host = "localhost"
+        self.user = "root"
+        self.password = "1234"
+        self.db = "usuarios_db"
+        self.conexion = None
+
+    def conectar(self):
+        try:
+            self.conexion = pymysql.connect(
+                host=self.host,
+                user=self.user,
+                password=self.password,
+                database=self.db,
+                cursorclass=pymysql.cursors.DictCursor
+            )
+            return self.conexion
+        except pymysql.MySQLError as e:
+            print(f"Error al conectar a la base de datos: {e}")
+            return None
+
+    def cerrar(self):
+        if self.conexion:
+            self.conexion.close()
