@@ -2,7 +2,9 @@ from flask import Flask
 app = Flask(__name__)
 
 # Ruta raíz - Página de inicio
-
+@app.route("/")
+def hola_mundo()
+    retur
 # Ruta genérica para explorar enrutamiento
 
 # Rutas dinámicas para personalización
