@@ -1,0 +1,19 @@
+.pokemon-img {
+    max-height: 150px;
+    object-fit: contain;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pokemon-img:hover {
+    transform: scale(1.1);
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+}

@@ -16,19 +16,38 @@ pokedex = [
     {"id": 143, "nombre": "Snorlax", "tipo": "Normal", "imagen": "snorlax.png", "poder": 160, "altura": "2.1m", "peso": "460.0kg"}
 ]
 
+# 1. Ruta para mostrar todos los Pokémon
+@app.route("/pokemon")
+def mostrar_todos():
+    return render_template("pokemon.html", lista_pokemon=pokedex, titulo="Pokédex Completa")
 
-# Ruta para mostrar todos los Pokémon
+# 2. Ruta para mostrar un Pokémon por número (ID)
+@app.route("/pokemon/<int:pokemon_id>")
+def mostrar_por_id(pokemon_id):
+    for p in pokedex:
+        if p["id"] == pokemon_id:
+            return render_template("pokemon.html", lista_pokemon=[p], titulo=f"Pokémon #{p['id']}")
+    return pokemon_no_encontrado(str(pokemon_id))
 
-# Ruta para mostrar un Pokémon por nombre
+# 3. Ruta para mostrar un Pokémon por nombre
+@app.route("/pokemon/<string:nombre>")
+def mostrar_por_nombre(nombre):
+    for p in pokedex:
+        if p["nombre"].lower() == nombre.lower():
+            return render_template("pokemon.html", lista_pokemon=[p], titulo=p["nombre"])
+    return pokemon_no_encontrado(nombre)
 
-# Ruta para mostrar un Pokémon por número en la Pokédex
-
-# Ruta para mostrar una cantidad específica de Pokémon
+# 4. Ruta para mostrar una cantidad específica de Pokémon
+@app.route("/pokemon/cantidad/<int:num>")
+def mostrar_cantidad(num):
+    seleccionados = pokedex[:num]
+    return render_template("pokemon.html", lista_pokemon=seleccionados, titulo=f"Primeros {num} Pokémon")
 
 # Error cuando no se encuentra un Pokémon
 def pokemon_no_encontrado(mensaje: str):
     """Función simple para renderizar la página 404 con un mensaje."""
-    return render_template("404.html", mensaje=mensaje)
+    texto_mensaje = f'No pudimos encontrar información sobre "{mensaje}" en nuestra Pokédex.'
+    return render_template("404.html", mensaje=texto_mensaje), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
