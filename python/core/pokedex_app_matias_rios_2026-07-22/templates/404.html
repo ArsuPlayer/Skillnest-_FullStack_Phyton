@@ -1,11 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404</title>
+    <title>Pokémon no encontrado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    
+<body class="bg-light d-flex align-items-center vh-100">
+    <div class="container text-center">
+        <div class="card shadow-lg p-5 border-0 mx-auto" style="max-width: 500px;">
+            <h1 class="display-3 text-danger fw-bold">¡Oh no!</h1>
+            <p class="fs-5 text-secondary my-3">{{ mensaje }}</p>
+            <h5 class="text-danger my-3">⚠️ Pokémon no encontrado</h5>
+            <p class="text-muted small mb-4">Tal vez este Pokémon aún no ha sido descubierto, o quizás has escrito mal su nombre.</p>
+            <div>
+                <a href="/pokemon" class="btn btn-primary px-4">🏠 Volver a la Pokédex</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

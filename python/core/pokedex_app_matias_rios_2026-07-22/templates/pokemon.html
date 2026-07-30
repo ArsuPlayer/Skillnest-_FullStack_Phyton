@@ -1,11 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokédex</title>
+    <title>{{ titulo }} - Pokédex</title>
+    <!-- CSS Bootstrap para un diseño atractivo -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body>
-    
+<body class="bg-light">
+    <div class="container my-4">
+        <h1 class="text-center mb-4 text-primary">🔴 Pokédex</h1>
+        <h3 class="text-center text-muted mb-4">{{ titulo }}</h3>
+
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            {% for pokemon in lista_pokemon %}
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-header bg-danger text-white d-flex justify-content-between align-items-center">
+                        <h5 class="card-title mb-0">{{ pokemon.nombre }}</h5>
+                        <span class="badge bg-light text-dark">#{{ pokemon.id }}</span>
+                    </div>
+                    <div class="text-center p-3 bg-white">
+                        <img src="{{ url_for('static', filename='images/' + pokemon.imagen) }}" 
+                            alt="{{ pokemon.nombre }}" 
+                            class="img-fluid pokemon-img">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><strong>Tipo:</strong> <span class="badge bg-secondary">{{ pokemon.tipo }}</span></p>
+                        <p class="card-text"><strong>Poder:</strong> {{ pokemon.poder }}</p>
+                        <p class="card-text"><strong>Altura:</strong> {{ pokemon.altura }}</p>
+                        <p class="card-text"><strong>Peso:</strong> {{ pokemon.peso }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="/pokemon" class="btn btn-outline-primary">Ver todos los Pokémon</a>
+        </div>
+    </div>
 </body>
 </html>
