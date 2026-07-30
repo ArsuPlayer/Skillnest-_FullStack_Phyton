@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plataformas Digitales</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="main-wrapper">
+        <!-- Encabezado Principal -->
+        <header class="header-section">
+            <h1><i class="fa-solid fa-table-cells-large icon-title"></i> Plataformas Digitales</h1>
+            <p>Visualización de datos de las principales plataformas digitales</p>
+        </header>
+
+        <!-- Panel de Filtros -->
+        <div class="filter-card">
+            <h3><i class="fa-solid fa-filter"></i> Filtros y Ordenamiento</h3>
+            <form method="GET" action="/tabla" id="filterForm">
+                <div class="filter-grid">
+                    <div class="filter-group">
+                        <label for="pais">Filtrar por país:</label>
+                        <select name="pais" id="pais" onchange="document.getElementById('filterForm').submit()">
+                            <option value="Todos" {% if pais_seleccionado=='Todos' %}selected{% endif %}>Todos los
+                                países</option>
+                            {% for pais in paises %}
+                            <option value="{{ pais }}" {% if pais_seleccionado==pais %}selected{% endif %}>{{ pais }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="ordenar">Ordenar por:</label>
+                        <select name="ordenar" id="ordenar" onchange="document.getElementById('filterForm').submit()">
+                            <option value="nombre" {% if ordenar_seleccionado=='nombre' %}selected{% endif %}>Nombre
+                            </option>
+                            <option value="fundado" {% if ordenar_seleccionado=='fundado' %}selected{% endif %}>Año
+                                Fundación</option>
+                            <option value="pais" {% if ordenar_seleccionado=='pais' %}selected{% endif %}>País</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="direccion">Dirección:</label>
+                        <select name="direccion" id="direccion"
+                            onchange="document.getElementById('filterForm').submit()">
+                            <option value="asc" {% if direccion_seleccionada=='asc' %}selected{% endif %}>Ascendente
+                            </option>
+                            <option value="desc" {% if direccion_seleccionada=='desc' %}selected{% endif %}>Descendente
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tabla de Datos -->
+        <div class="table-container">
+            {% if plataformas %}
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Nombre <i class="fa-solid fa-caret-down"></i></th>
+                        <th>Usuarios</th>
+                        <th>Año Fundación</th>
+                        <th>País</th>
+                        <th class="text-center">Detalles</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in plataformas %}
+                    <tr>
+                        <td class="platform-cell">
+                            <img src="{{ item.logo }}" alt="{{ item.nombre }}" class="platform-logo">
+                            <span class="platform-name">{{ item.nombre }}</span>
+                        </td>
+                        <td><span class="badge badge-blue">{{ item.usuarios }}</span></td>
+                        <td>{{ item.fundado }}</td>
+                        <td><span class="badge badge-gray">{{ item.pais }}</span></td>
+                        <td class="text-center">
+                            <button class="btn-info" title="Ver detalles">
+                                <i class="fa-solid fa-info"></i>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <div class="table-footer">
+                Mostrando {{ plataformas|length }} plataformas
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <p>⚠️ No se encontraron resultados para los filtros seleccionados.</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Footer al final de la página -->
+    <footer class="footer-section">
+        <p>Visualización de datos desarrollada con Flask y Bootstrap.</p>
+        <p class="footer-subtext">Los datos mostrados son ficticios para fines educativos.</p>
+    </footer>
+
+</body>
+
+</html>
