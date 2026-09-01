@@ -1,0 +1,209 @@
+:root {
+    --bg-app: #0b0e14;
+    --card-bg: #151921;
+    --text-dark: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: #262c36;
+    --dark-input-bg: #1e232d;
+    
+    --ig-blue: #0095f6;
+    --ig-blue-hover: #1877f2;
+    --ig-green: #10b981;
+    --ig-green-hover: #059669;
+    --ig-secondary-btn: #262c3a;
+    --ig-secondary-hover: #32394a;
+    --danger: #ef4444;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-app);
+    color: var(--text-dark);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    width: 100%;
+}
+
+.visitas-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+h1 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-dark);
+}
+
+.descripcion {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 24px;
+}
+
+/* Bloque central del contador */
+.contador {
+    background: #0f1218;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px 0;
+    margin-bottom: 8px;
+}
+
+.contador span {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: var(--ig-blue);
+    line-height: 1;
+}
+
+.texto-visitas {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    font-weight: 500;
+    margin-bottom: 24px;
+}
+
+/* Botones Principales */
+.acciones {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+.acciones .btn {
+    flex: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background-color: var(--ig-blue) !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--ig-blue-hover) !important;
+}
+
+.btn-warning {
+    background-color: var(--ig-secondary-btn) !important;
+    color: var(--text-dark) !important;
+}
+
+.btn-warning:hover {
+    background-color: var(--ig-secondary-hover) !important;
+}
+
+/* Formulario */
+.formulario {
+    background: #0f1218;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 14px;
+    margin-bottom: 20px;
+}
+
+.formulario h3 {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.input-group {
+    display: flex;
+    gap: 8px;
+}
+
+.input-group .form-control {
+    border: 1px solid var(--border-color);
+    border-radius: 8px !important;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    background: var(--dark-input-bg);
+    color: var(--text-dark);
+    box-shadow: none !important;
+}
+
+.input-group .form-control::placeholder {
+    color: #6b7280;
+}
+
+.input-group .form-control:focus {
+    border-color: var(--ig-blue);
+    background: var(--dark-input-bg);
+    color: var(--text-dark);
+}
+
+.btn-success {
+    background-color: var(--ig-green) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 8px 14px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.btn-success:hover {
+    background-color: var(--ig-green-hover) !important;
+}
+
+/* Reinicios */
+.reinicios {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    background: var(--ig-secondary-btn);
+    padding: 6px 14px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 16px;
+}
+
+/* Destruir Sesión */
+.destruir .btn-outline-danger {
+    color: var(--danger) !important;
+    border: none !important;
+    background: transparent !important;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.destruir .btn-outline-danger:hover {
+    background-color: rgba(239, 68, 68, 0.12) !important;
+}
