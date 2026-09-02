@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Juego del Destino</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="tarjeta-principal">
+        <!-- Encabezado -->
+        <header class="header-destino">
+            <div class="icono-luna">🌙</div>
+            <h1>El Juego del Destino</h1>
+            <p>Descubre qué te depara el futuro</p>
+        </header>
+
+        <!-- Formulario -->
+        <form action="{{ url_for('enviar') }}" method="POST" class="contenido-form">
+            <div class="campo">
+                <input type="text" name="nombre" placeholder="👤 Tu nombre" required>
+            </div>
+
+            <div class="campo">
+                <input type="number" name="edad" placeholder="📅 Tu edad" required>
+            </div>
+
+            <div class="campo">
+                <input type="text" name="color" placeholder="🎨 Tu color favorito" required>
+                <span class="pista">Ej. rojo, azul, verde, morado, amarillo...</span>
+            </div>
+
+            <div class="campo">
+                <input type="text" name="animal" placeholder="🐾 Tu animal favorito" required>
+                <span class="pista">Ej. perro, gato, águila, león, delfín...</span>
+            </div>
+
+            <div class="esfera-mística">🔮</div>
+
+            <button type="submit" class="btn-revelar">
+                🪄 Revelar mi destino
+            </button>
+        </form>
+    </div>
+
+</body>
+</html>
