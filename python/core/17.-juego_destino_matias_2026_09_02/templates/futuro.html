@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Destino Revelado</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="tarjeta-principal">
+        <!-- Encabezado -->
+        <header class="header-destino">
+            <div class="icono-sol">☀️</div>
+            <h1>Tu Destino ha sido Revelado</h1>
+            <p>Las estrellas han hablado, {{ nombre }}</p>
+        </header>
+
+        <!-- Creado para encapsular todo el contenido blanco -->
+        <main class="contenido-resultado">
+            
+            {% if prediccion %}
+            <!-- Tarjeta de Predicción -->
+            <div class="alerta-prediccion {{ prediccion.tipo }}">
+                <div class="icono-prediccion">{{ prediccion.icono }}</div>
+                <p>{{ prediccion.mensaje }}</p>
+            </div>
+            {% endif %}
+
+            <!-- Bloques de Preferencias -->
+            <div class="grilla-detalles">
+                <div class="tarjeta-detalle">
+                    <h4>🎨 Tu Color</h4>
+                    <div class="muestra-color" style="--color-bg: {{ color }}; background-color: var(--color-bg);"></div>
+                    <p>Tu preferencia por el color <strong>{{ color }}</strong> revela tu afinidad con el <strong>misterio y descubrimiento</strong>.</p>
+                </div>
+
+                <div class="tarjeta-detalle">
+                    <h4>🐾 Tu Animal</h4>
+                    <p>Tu conexión con el <strong>{{ animal }}</strong> simboliza tu naturaleza de <strong>independencia y misterio</strong>.</p>
+                </div>
+            </div>
+
+            <!-- Número de la suerte -->
+            <div class="seccion-suerte">
+                <h3>Tu número de la suerte</h3>
+                <div class="circulo-numero">{{ numero_suerte }}</div>
+                <p class="subtexto">Este número te acompañará en momentos importantes.</p>
+            </div>
+
+            <!-- Mensaje Edad -->
+            <div class="mensaje-edad">
+                A tus <strong>{{ edad }} años</strong>, estás en un momento favorable para aprovechar nuevas oportunidades.
+            </div>
+
+            <!-- Botón Consultar -->
+            <a href="{{ url_for('index') }}" class="btn-consultar">
+                ↻ Consultar de nuevo
+            </a>
+
+        </main>
+
+        <footer class="footer-destino">
+            Las estrellas te han hablado hoy: {{ nombre }}.
+        </footer>
+    </div>
+
+</body>
+</html>
