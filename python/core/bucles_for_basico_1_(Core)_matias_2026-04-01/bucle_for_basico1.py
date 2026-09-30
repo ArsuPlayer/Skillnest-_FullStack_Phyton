@@ -5,95 +5,58 @@ usando ejemplos inspirados en videojuegos y situaciones atractivas.
 
 # 1. Generador de niveles
 # Imprime todos los niveles del 0 al 100 (incluyendo el 100).
-def niveles():
-    for i in range(0, 101):
-        print(i)
+print("--- 1. Generador de niveles ---")
+for nivel in range(101):
+    print(nivel)
 
 
 # 2. Potenciadores de energía (Múltiplos de 2)
 # Imprime los números múltiplos de 2 desde 2 hasta 500 (incluyendo el 500).
-def energia():
-    for i in range(2, 502, 2):
-        print(i)
+print("\n--- 2. Potenciadores de energía ---")
+for potenciador in range(2, 501, 2):
+    print(potenciador)
+
 
 # 3. Trampa de emojis
 # Recorre los puntos del 1 al 100.
-# - Si el número es divisible por 5, imprime ""
-# - Si es divisible por 10, imprime ""
-# ¡Cuidado con la prioridad en tus condicionales!
-def trampaEmoji():
-    for i in range(1, 101):
-        if i % 5 == 0:
-            print("😒")
-        elif i % 10 == 0:
-            print("😎")
-        else:
-            print(i) 
+# - Si el número es divisible por 5, imprime un emoji (ej. "⭐")
+# - Si es divisible por 10, imprime otro emoji (ej. "🎮")
+# ¡Cuidado con la prioridad en tus condicionales! (Los múltiplos de 10 también son de 5, por lo que van primero).
+print("\n--- 3. Trampa de emojis ---")
+for punto in range(1, 101):
+    if punto % 10 == 0:
+        print(f"Punto {punto}: 🎮 (Múltiplo de 10)")
+    elif punto % 5 == 0:
+        print(f"Punto {punto}: ⭐ (Múltiplo de 5)")
+    else:
+        print(f"Punto {punto}")
+
 
 # 4. Suma colosal
 # Suma todos los números pares del 0 al 500,000 e imprime la suma total.
-def sumaColosal():
-    total = 0
-    for i in range(0, 500001, 2):
-        total += i
-    print(f"El resultado es: {total}")
+print("\n--- 4. Suma colosal ---")
+suma_total = 0
+for numero in range(0, 500001, 2):
+    suma_total += numero
+print(f"La suma total de los números pares hasta 500,000 es: {suma_total}")
+
 
 # 5. Retroceso temporal
 # Desde 2024, retrocede de 3 en 3 hasta 0 o menos.
 # Imprime cada valor en la cuenta regresiva.
-def retroceso():
-    for i in range(2024, -3, -2):
-        print(i)
-
+print("\n--- 5. Retroceso temporal ---")
+for anio in range(2024, -1, -3):
+    print(anio)
 
 
 # 6. Contador dinámico
 # Declara las variables inicio, fin, y salto (por ejemplo: inicio=3, fin=10, salto=2).
 # Imprime los números en el rango que sean múltiplos de 'salto'.
-
+print("\n--- 6. Contador dinámico ---")
 inicio = 3
 fin = 10
 salto = 2
 
-def contador():
-    print(f"Multiplos de salto ente {salto} entre {inicio} y {fin}")
-    for i in range(inicio, fin + 1):
-        if i % salto == 0:
-            print(i)
-
-# Ejemplo: si inicio = 3, fin = 10, y salto = 2
-# Se imprimiría: 4, 6, 8, 10
-
-
-
-# Menú de navegación 
-continuar = True
-while continuar:
-    print("")
-    print("--- 1.- Ejercicio 1---")
-    print("--- 2.- Ejercicio 2---")
-    print("--- 3.- Ejercicio 3---")
-    print("--- 4.- Ejercicio 4---")
-    print("--- 5.- Ejercicio 5---")
-    print("--- 6.- Ejercicio 6---")
-
-
-    opcion = input("\n----Elige una opcion: (1-15) (0 para salir) =")
-    if opcion == "1":
-        print("\nEjecutando ejercicio 1: ")
-        print(niveles())
-    elif opcion == "2":
-        print("\Ejecutando ejercicio 2:")
-        print(energia())
-    elif opcion == "3":
-        print("\Ejecutando ejercicio 3:")
-        print(trampaEmoji())
-    elif opcion == "4":
-        print("\Ejecutando ejercicio 4:")
-        print(sumaColosal())
-    elif opcion == "5":
-        print("\Ejecutando ejercicio 5:")
-        print(retroceso())
-    elif opcion == "6":
-        print("\Ejecutando ejercicio 6:")
-        print(contador())
+for i in range(inicio, fin + 1):
+    if i % salto == 0:
+        print(i)
