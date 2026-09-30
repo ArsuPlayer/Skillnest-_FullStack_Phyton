@@ -1,19 +1,58 @@
-.pokemon-img {
-    max-height: 150px;
-    object-fit: contain;
-    transition: transform 0.2s ease-in-out;
+body {
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-.pokemon-img:hover {
-    transform: scale(1.1);
-}
-
-.card {
-    border-radius: 12px;
+.pokemon-card {
+    border-radius: 16px;
     overflow: hidden;
-    transition: box-shadow 0.3s ease;
+    background-color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card:hover {
-    box-shadow: 0 8px 16px rgba(0,0,0,0.15) !important;
+.pokemon-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+.pokemon-img-container {
+    background: linear-gradient(135deg, #e2e8f0 0%, #f1f5f9 100%);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    min-height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pokemon-img {
+    max-height: 120px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.pokemon-card:hover .pokemon-img {
+    transform: scale(1.06);
+}
+
+/* Colores para las insignias de tipo */
+.badge-planta { background-color: #51c453 !important; color: white; }
+.badge-veneno { background-color: #a040a0 !important; color: white; }
+.badge-fuego { background-color: #f08030 !important; color: white; }
+.badge-agua { background-color: #3b82f6 !important; color: white; }
+.badge-electrico { background-color: #eab308 !important; color: #1e293b; }
+.badge-normal { background-color: #94a3b8 !important; color: white; }
+.badge-hada { background-color: #ec4899 !important; color: white; }
+.badge-fantasma { background-color: #7c3aed !important; color: white; }
+.badge-roca { background-color: #b45309 !important; color: white; }
+.badge-tierra { background-color: #d97706 !important; color: white; }
+
+.progress {
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.btn {
+    border-radius: 50rem;
+    font-weight: 500;
 }
