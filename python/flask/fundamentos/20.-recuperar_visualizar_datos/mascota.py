@@ -21,10 +21,15 @@ class Mascota:
         """
 
         self.id = data["id"]
+
         self.nombre = data["nombre"]
+
         self.tipo = data["tipo"]
+
         self.color = data["color"]
+
         self.created_at = data["created_at"]
+
         self.updated_at = data["updated_at"]
 
 
@@ -37,19 +42,49 @@ class Mascota:
         """
         Consulta todas las mascotas almacenadas
         en la base de datos.
+
         Retorna una lista de objetos Mascota.
         """
+
+        # --------------------------------------------------
+        # CONSULTA SQL
+        # --------------------------------------------------
 
         query = """
             SELECT *
             FROM mascotas;
         """
 
-        resultados = connectToMySQL("primera_flask").query_db(query)
+
+        # --------------------------------------------------
+        # EJECUTAR CONSULTA
+        # --------------------------------------------------
+
+        resultados = connectToMySQL(
+            "primera_flask"
+        ).query_db(query)
+
+
+        # --------------------------------------------------
+        # CREAR LISTA DE OBJETOS
+        # --------------------------------------------------
 
         mascotas = []
 
+
+        # --------------------------------------------------
+        # CONVERTIR RESULTADOS EN OBJETOS
+        # --------------------------------------------------
+
         for mascota in resultados:
-            mascotas.append(cls(mascota))
+
+            mascotas.append(
+                cls(mascota)
+            )
+
+
+        # --------------------------------------------------
+        # RETORNAR RESULTADOS
+        # --------------------------------------------------
 
         return mascotas

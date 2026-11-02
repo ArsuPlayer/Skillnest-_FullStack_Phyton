@@ -3,6 +3,7 @@
 # ==========================================================
 
 from flask import Flask, render_template
+
 from mascota import Mascota
 
 
@@ -24,12 +25,30 @@ def index():
     hacia la plantilla index.html.
     """
 
+    # ------------------------------------------------------
+    # OBTENER MASCOTAS DESDE MYSQL
+    # ------------------------------------------------------
+
     mascotas = Mascota.get_all()
+
+
+    # ------------------------------------------------------
+    # MOSTRAR RESULTADOS EN TERMINAL
+    # ------------------------------------------------------
+
     print(mascotas)
 
+
+    # ------------------------------------------------------
+    # ENVIAR DATOS A JINJA2
+    # ------------------------------------------------------
+
     return render_template(
+
         "index.html",
+
         todas_mascotas=mascotas
+
     )
 
 
@@ -38,4 +57,5 @@ def index():
 # ==========================================================
 
 if __name__ == "__main__":
+
     app.run(debug=True)
