@@ -50,7 +50,24 @@ def index():
         todas_mascotas=mascotas
 
     )
+# ==========================================================
+# RUTA: MASCOTAS DE TIPO PERRO
+# ==========================================================
 
+@app.route("/mascotas/perros")
+def perros():
+    """
+    Obtiene únicamente las mascotas de tipo 'Perro'
+    y las envía a la plantilla.
+    """
+    # Consultar al modelo solo los perros
+    lista_perros = Mascota.get_by_tipo("Perro")
+
+    # Renderizar index.html (o una plantilla dedicada) enviando los resultados
+    return render_template(
+        "index.html",
+        todas_mascotas=lista_perros
+    )
 
 # ==========================================================
 # EJECUTAR SERVIDOR

@@ -32,6 +32,41 @@ class Mascota:
 
         self.updated_at = data["updated_at"]
 
+    # ======================================================
+    # OBTENER MASCOTAS POR TIPO
+    # ======================================================
+
+    @classmethod
+    def get_by_tipo(cls, tipo):
+        """
+        Consulta las mascotas filtrando por su tipo.
+        Recibe el tipo de animal como string (ej: 'Perro').
+        Retorna una lista de objetos Mascota.
+        """
+
+        # Consulta SQL parametrizada para prevenir inyección SQL
+        query = """
+            SELECT *
+            FROM mascotas
+            WHERE tipo = %(tipo)s;
+        """
+
+        # Diccionario con los datos a reemplazar en la consulta
+        data = {
+            "tipo": tipo
+        }
+
+        # Ejecutar la consulta pasando la query y la data
+        resultados = connectToMySQL("primera_flask").query_db(query, data)
+
+        mascotas = []
+
+        if resultados:
+            for mascota in resultados:
+                mascotas.append(cls(mascota))
+
+        return mascotas
+
 
     # ======================================================
     # OBTENER TODAS LAS MASCOTAS
