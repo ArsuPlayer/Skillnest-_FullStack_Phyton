@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Mascotas</title>
+</head>
+<body>
+    <nav>
+        <a href="/mascotas">Mascotas</a> | 
+        <a href="/usuarios">Usuarios</a>
+    </nav>
+
+    <h1>Listado de Mascotas</h1>
+
+    {% if mascotas %}
+        <ul>
+            {% for mascota in mascotas %}
+                <li>
+                    <strong>
+                        <a href="/mascotas/{{ mascota.id }}">{{ mascota.nombre }}</a>
+                    </strong> 
+                    - {{ mascota.tipo }} ({{ mascota.color }})
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No existen mascotas registradas.</p>
+    {% endif %}
+</body>
+</html>

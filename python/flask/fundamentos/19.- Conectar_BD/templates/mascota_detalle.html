@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Mascota</title>
+</head>
+<body>
+    <p><a href="/mascotas">← Volver al listado</a></p>
+
+    {% if mascota %}
+        <h1>Ficha de {{ mascota.nombre }}</h1>
+        <ul>
+            <li><strong>ID:</strong> {{ mascota.id }}</li>
+            <li><strong>Tipo:</strong> {{ mascota.tipo }}</li>
+            <li><strong>Color:</strong> {{ mascota.color }}</li>
+            <li><strong>Registrado el:</strong> {{ mascota.created_at }}</li>
+        </ul>
+    {% else %}
+        <h1>Mascota no encontrada</h1>
+        <p>No existe ningún registro con ese identificador.</p>
+    {% endif %}
+</body>
+</html>

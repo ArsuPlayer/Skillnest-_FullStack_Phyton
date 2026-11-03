@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Usuario</title>
+</head>
+<body>
+    <p><a href="/usuarios">← Volver a Usuarios</a></p>
+
+    {% if usuario %}
+        <h1>Perfil de {{ usuario.nombre }}</h1>
+        <ul>
+            <li><strong>ID:</strong> {{ usuario.id }}</li>
+            <li><strong>Email:</strong> {{ usuario.email }}</li>
+            <li><strong>Edad:</strong> {{ usuario.edad }} años</li>
+            <li><strong>Fecha de Registro:</strong> {{ usuario.created_at }}</li>
+        </ul>
+    {% else %}
+        <h1>Usuario no encontrado</h1>
+        <p>El usuario solicitado no existe.</p>
+    {% endif %}
+</body>
+</html>
