@@ -24,6 +24,18 @@ h1 {
     padding-bottom: 14px;
 }
 
+.empty-state {
+    padding: 60px 30px;
+}
+
 .form-control, .btn {
     border-radius: 6px;
+}
+
+@media (max-width: 576px) {
+    .d-flex.justify-content-between {
+        align-items: flex-start !important;
+        flex-direction: column;
+        gap: 15px;
+    }
 }
