@@ -1,0 +1,22 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.acciones {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.detail-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075);
+}

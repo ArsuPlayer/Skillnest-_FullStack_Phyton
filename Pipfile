@@ -15,6 +15,7 @@ markupsafe = "==3.0.3"
 python-dotenv = "==1.2.1"
 werkzeug = "==3.1.5"
 flask = "*"
+pymysql = "*"
 
 [dev-packages]
 
