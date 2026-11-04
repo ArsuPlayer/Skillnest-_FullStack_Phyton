@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayuda - Conceptos Flask</title>
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('index') }}">Inicio</a> | 
+        <a href="{{ url_for('ayuda') }}">Ayuda</a>
+    </nav>
+
+    <h1>Sección de Ayuda y Conceptos</h1>
+    
+    <ul>
+        <li><strong>Solicitud POST:</strong> Envía datos de manera segura desde un formulario hacia el servidor para procesarlos o guardarlos.</li>
+        <li><strong>Solicitud GET:</strong> Se encarga de solicitar o recuperar páginas web o recursos desde el servidor sin modificar datos.</li>
+        <li><strong>redirect():</strong> Ordena al navegador del usuario que realice una nueva solicitud HTTP hacia otra ruta (Patrón PRG).</li>
+        <li><strong>request.form:</strong> Diccionario que almacena los datos de un POST, pero que no persiste tras una redirección porque esta genera una nueva solicitud GET.</li>
+    </ul>
+
+    <br>
+    <a href="{{ url_for('index') }}">Volver al formulario principal</a>
+</body>
+</html>
