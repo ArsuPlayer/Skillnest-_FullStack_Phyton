@@ -29,14 +29,14 @@ class Usuario:
         return connect_to_mysql('voluntame_db').query_db(query, formulario)
 
     @classmethod
-    def obtener_por_email(cls, formulario):
-        """Busca un usuario por su email. Vital para el Login y para evitar duplicados."""
+    def obtener_por_email(cls, data):
         query = "SELECT * FROM usuarios WHERE email = %(email)s;"
-        resultado = connect_to_mysql('voluntame_db').query_db(query, formulario)
+        resultado = connect_to_mysql('voluntame_db').query_db(query, data)
+    
+    # Validamos si la consulta falló (retorna False) o no trajo resultados
+        if not resultado:
+            return None
         
-        if len(resultado) < 1:
-            return False
-            
         return cls(resultado[0])
         
     @classmethod
