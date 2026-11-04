@@ -1,0 +1,17 @@
+CREATE DATABASE IF NOT EXISTS usuarios_db;
+USE usuarios_db;
+
+CREATE TABLE IF NOT EXISTS tipos_usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_tipo VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(100) NOT NULL,
+    tipo_usuario INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_tipo_usuario FOREIGN KEY (tipo_usuario) REFERENCES tipos_usuario(id)
+);
